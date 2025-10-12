@@ -2,95 +2,40 @@
 import GitHub from "./icons/GitHub.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
-import Java from "./icons/Java.astro";
-import Spring from "./icons/Spring.astro";
-import MySQL from "./icons/MySQL.astro";
-import Rabbitmq from "./icons/Rabbitmq.astro";
-import Docker from "./icons/Docker.astro";
-import React from "./icons/React.astro";
-import Next from "./icons/Next.astro";
-import CSS from "./icons/CSS.astro";
-import HTML from "./icons/HTML.astro";
-import Javascript from "./icons/Javascript.astro";
+import { TAGS } from "./tags/Tags.ts";
 
-const TAGS = {
-  JAVA: {
-    name: "Java",
-    class: "bg-black text-white dark:bg-gray-800",
-    icon: Java,
-  },
-  SPRING: {
-    name: "Spring",
-    class: "bg-black text-white dark:bg-gray-800",
-    icon: Spring,
-  },
-  MYSQL: {
-    name: "MySQL",
-    class: "bg-black text-white dark:bg-gray-800",
-    icon: MySQL,
-  },
-  RABBITMQ: {
-    name: "Rabbitmq",
-    class: "bg-black text-white dark:bg-gray-800",
-    icon: Rabbitmq,
-  },
-  DOCKER: {
-    name: "Docker",
-    class: "bg-black text-white dark:bg-gray-800",
-    icon: Docker,
-  },
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white dark:bg-gray-800",
-    icon: Next,
-  },
-  REACT: {
-    name: "React",
-    class: "bg-black text-white dark:bg-gray-800",
-    icon: React,
-  },
-  HTML: {
-    name: "HTML",
-    class: "bg-black text-white dark:bg-gray-800",
-    icon: HTML,
-  },
-  CSS: {
-    name: "CSS",
-    class: "bg-black text-white dark:bg-gray-800",
-    icon: CSS,
-  },
-  JAVASCRIPT: {
-    name: "JavaScript",
-    class: "bg-black text-white dark:bg-gray-800",
-    icon: Javascript,
-  },
-};
 const PROJECTS = [
-{
-    title: "E-commerce API - Proyecto final de Curso",
-    description:
-      "E-commerce API diseñado para administrar productos, carritos y clientes. Implementado con los patrones de diseño \"decorator\" y \"factory\" y arquitectura MVC.",
-    link: "http://98.83.153.240/swagger-ui/index.html",
-    github: "https://github.com/Alankke/Ecommerce",
-    image: "./projects/Ecommerce-API.jpg",
-    tags: [TAGS.JAVA, TAGS.SPRING, TAGS.DOCKER, TAGS.RABBITMQ],
-  },
   {
     title: "Brainscriptor - Plataforma digital psicofármacos",
     description:
-      "Plataforma digital para la asistencia de prescripción personalizada de psicofármacos. Hecha con Next, React, HTML, CSS, Javascript, TailwindCSS",
+      "Plataforma digital para la asistencia de prescripción personalizada de psicofármacos. Hecha con Next, React, HTML, CSS, Javascript.",
     link: "https://app.brainscriptor.com/",
     image: "./projects/brainscriptor.png",
     tags: [TAGS.NEXT, TAGS.REACT, TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
   },
   {
-    title: "Patrick Coins - Proyecto simulación laboral",
+    title: "Dumas Distribuciones - Tienda Web para distribuidora",
     description:
-      "Plataforma de inversión en criptomonedas, hecho con Java, Spring y MySQL. Hecho con el equipo de la simulación laboral, fui responsable del desarrollo backend con arquitectura MVC.",
-    link: "https://c17-35-m-java.vercel.app/",
-    github: "https://github.com/No-Country-simulation/c17-35-m-java",
-    image: "./projects/patrickCoins.jpg",
-    tags: [TAGS.JAVA, TAGS.SPRING, TAGS.MYSQL],
+      "Solución integral para una empresa de distribución de productos para veterinarias. Integración con Mercado Pago y Firebase para almacenamiento de imágenes.",
+    link: "https://dumasdistribuciones.com.ar",
+    image: "./projects/dumas.png",
+    tags: [TAGS.JAVA, TAGS.SPRING, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.POSTGRESQL],
+  },
+  {
+    title: "Shelby Peluquería - Landing y Reserva de turnos",
+    description:
+      "Pagina web landing y sistema de reserva de turnos para una peluquería. Se incrementaron en un 80% las reservas de turnos. Aumento del 65% de clientes nuevos.",
+    link: "https://shelbypeluqueria.com",
+    image: "./projects/shelby.png",
+    tags: [TAGS.REACT, TAGS.HTML, TAGS.CSS, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+  },
+  {
+    title: "E-commerce API - Proyecto final de Bootcamp Globant",
+    description:
+      "E-commerce API diseñado para administrar productos, carritos y clientes. Implementado con los patrones de diseño \"decorator\" y \"factory\" y arquitectura MVC.",
+    github: "https://github.com/Alankke/Ecommerce",
+    image: "./projects/Ecommerce-API.jpg",
+    tags: [TAGS.JAVA, TAGS.SPRING, TAGS.DOCKER, TAGS.RABBITMQ],
   },
 ];
 ---
@@ -99,7 +44,7 @@ const PROJECTS = [
   {
     PROJECTS.map(({ image, title, description, tags, link, github }) => (
       <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-        <div class="w-full md:w-1/2">
+        <div class="w-full md:w-1/2 h-full">
           <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
             <img
               alt="Captura de pantalla del proyecto"
@@ -116,11 +61,11 @@ const PROJECTS = [
           </h3>
 
           <div class="flex flex-col mt-2">
-            <ul class="flex flex-row mb-2 gap-x-2">
+            <ul class="flex flex-row mb-2 gap-x-2 flex-wrap">
               {tags.map((tag) => (
                 <li>
                   <span
-                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 max-w-fit mt-2`}
                   >
                     <tag.icon class="size-4" />
                     {tag.name}
