@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alankke.github.io/sitemap-index.xml

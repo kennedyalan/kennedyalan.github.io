@@ -7,20 +7,63 @@ import { ClientRouter } from "astro:transitions"
 interface Props {
   title: string
   description: string
+  ogImage?: string
 }
 
-const { description, title } = Astro.props
+const { description, title, ogImage = "/profile.jpg" } = Astro.props
+const siteUrl = "https://alankke.github.io"
+const canonicalURL = `${siteUrl}${Astro.url.pathname}`
+const ogImageURL = `${siteUrl}${ogImage}`
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alan Kennedy",
+  "url": siteUrl,
+  "jobTitle": "Full Stack Developer",
+  "knowsAbout": ["Full Stack Development", "React", "Next.js", "Spring Boot", "TypeScript", "Java", "Machine Learning"],
+  "sameAs": [
+    "https://linkedin.com/in/alankennedyy",
+    "https://github.com/alankke"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Corrientes",
+    "addressCountry": "AR"
+  }
+}
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Alan Kennedy" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content="Alan Kennedy - Portfolio" />
+    <meta property="og:locale" content="es_AR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
     <ClientRouter />
   </head>
 
