@@ -1,8 +1,14 @@
 ---
+import { Image } from "astro:assets";
 import GitHub from "./icons/GitHub.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
 import { TAGS } from "./tags/Tags.ts";
+import temploImg from "../../public/projects/templo.png";
+import brainscriptorImg from "../../public/projects/brainscriptor.png";
+import dumasImg from "../../public/projects/dumas.png";
+import shelbyImg from "../../public/projects/shelby.png";
+import ecommerceImg from "../../public/projects/Ecommerce-API.jpg";
 
 const PROJECTS = [
   {
@@ -10,7 +16,7 @@ const PROJECTS = [
     description:
       "Plataforma web para la reserva online de canchas de fútbol 5 en un complejo deportivo de Corrientes, Argentina. Permite seleccionar fechas, horarios y duración de la reserva, con confirmación vía WhatsApp.",
     link: "https://eltemplodelfutbol5.com",
-    image: "./projects/templo.png",
+    image: temploImg,
     tags: [TAGS.NEXT, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND],
   },
   {
@@ -18,7 +24,7 @@ const PROJECTS = [
     description:
       "Plataforma digital para la asistencia de prescripción personalizada de psicofármacos. Trabajé conjunto a un equipo de 3 desarrolladores, 1 product designer y 1 project manager. Actualmente en busca de financiación.",
     link: "https://app.brainscriptor.com/",
-    image: "./projects/brainscriptor.png",
+    image: brainscriptorImg,
     tags: [TAGS.NEXT, TAGS.REACT, TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
   },
   {
@@ -26,7 +32,7 @@ const PROJECTS = [
     description:
       "Solución integral para una empresa de distribución de productos para veterinarias. Integración con Mercado Pago y Firebase para almacenamiento de imágenes. Trabajo en equipo.",
     link: "https://dumasdistribuciones.com.ar",
-    image: "./projects/dumas.png",
+    image: dumasImg,
     tags: [TAGS.JAVA, TAGS.SPRING, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.POSTGRESQL],
   },
   {
@@ -34,7 +40,7 @@ const PROJECTS = [
     description:
       "Pagina web landing y sistema de reserva de turnos para una peluquería. Se incrementaron en un 80% las reservas de turnos. Aumento del 65% de clientes nuevos.",
     link: "https://shelbypeluqueria.com",
-    image: "./projects/shelby.png",
+    image: shelbyImg,
     tags: [TAGS.REACT, TAGS.HTML, TAGS.CSS, TAGS.TYPESCRIPT, TAGS.TAILWIND],
   },
   {
@@ -42,7 +48,7 @@ const PROJECTS = [
     description:
       "E-commerce API diseñado para administrar productos, carritos y clientes. Implementado con los patrones de diseño \"decorator\" y \"factory\" y arquitectura MVC. Aprendí mucho sobre buenas practicas y diseño de API REST.",
     github: "https://github.com/Alankke/Ecommerce",
-    image: "./projects/Ecommerce-API.jpg",
+    image: ecommerceImg,
     tags: [TAGS.JAVA, TAGS.SPRING, TAGS.DOCKER, TAGS.RABBITMQ],
   },
 ];
@@ -54,21 +60,20 @@ const PROJECTS = [
       <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
         <div class="w-full md:w-1/2 h-full">
           <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-            <img
+            <Image
               alt="Captura de pantalla del proyecto"
               class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
-              loading="lazy"
               src={image}
             />
           </div>
         </div>
 
-        <div class="w-full md:w-1/2 md:max-w-lg">
+        <div class="w-full md:w-1/2 md:max-w-lg flex flex-col">
           <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
             {title}
           </h3>
 
-          <div class="flex flex-col mt-2">
+          <div class="flex flex-col mt-2 flex-1">
             <ul class="flex flex-row mb-2 gap-x-2 flex-wrap">
               {tags.map((tag) => (
                 <li>
@@ -82,7 +87,7 @@ const PROJECTS = [
               ))}
             </ul>
 
-            <div class="mt-2 text-gray-700 dark:text-gray-400">
+            <div class="mt-2 text-gray-700 dark:text-gray-400 flex-1">
               {description}
             </div>
 

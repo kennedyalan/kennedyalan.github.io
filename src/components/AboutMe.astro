@@ -1,5 +1,7 @@
 ---
- const profilePhotoAlt = "Alan Kennedy"
+import { Image } from "astro:assets"
+import aboutMePhoto from "../../public/aboutMe.jpg"
+const profilePhotoAlt = "Alan Kennedy"
 ---
 
 <article class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
@@ -7,16 +9,16 @@
     class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1 px-2"
   >
     <p>
-      Actualmente estoy 
-      <strong>ofreciendo mis servicios como desarrollador de páginas web.</strong> 
+      Actualmente estoy
+      <strong>ofreciendo mis servicios como desarrollador de páginas web.</strong>
       Comencé en la programación cuando tenía 17 años, realizando cursos introductorios.
       En este momento, estoy desarrollando proyectos para clientes que necesiten una solución en software y formándome continuamente en el desarrollo full stack.
     </p>
-    
+
     <p>
       Me interesa muchísimo <strong>Machine Learning e IA</strong>. Me apasiona la fotografía como pasatiempo.
     </p>
   </div>
-  <img width="200" height="200" src="./aboutMe.jpg" alt={profilePhotoAlt} class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 " style="object-position: 50% 50%">
+  <Image src={aboutMePhoto} alt={profilePhotoAlt} class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20" style="object-position: 50% 50%" />
 
 </article>

@@ -1,18 +1,21 @@
 ---
+import { Image } from "astro:assets"
 import Badge from "./Badge.astro"
 import SocialPill from "./SocialPill.astro"
 import MailIcon from "./icons/Mail.astro"
 import LinkedInIcon from "./icons/LinkedIn.astro"
 import CvIcon from "./icons/Cv.astro"
+import profilePhoto from "../../public/profile.jpg"
 const profilePhotoAlt = "Alan Kennedy"
 ---
 
 <div class="max-w-xl">
   <div class="flex gap-4 mb-4">
-    <img
+    <Image
       class="rounded-full shadow-lg size-20 object-cover object-top"
-      src="/profile.jpg"
+      src={profilePhoto}
       alt={profilePhotoAlt}
+      loading="eager"
     />
     <a
       href="https://linkedin.com/in/alankennedyy"
