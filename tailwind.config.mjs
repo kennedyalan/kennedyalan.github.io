@@ -5,7 +5,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				display: ['Syne', 'sans-serif'],
+				display: ['"Space Grotesk"', 'sans-serif'],
 				body: ['Onest', 'system-ui', 'sans-serif'],
 			},
 			fontSize: {
