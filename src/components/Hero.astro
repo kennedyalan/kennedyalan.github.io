@@ -9,9 +9,9 @@ import profilePhoto from "../../public/profile.jpg"
 const profilePhotoAlt = "Alan Kennedy"
 ---
 
-<div class="max-w-xl">
-  <div class="flex gap-4 mb-4">
-    <div class="size-20 rounded-full shadow-lg overflow-hidden flex-shrink-0">
+<div>
+  <div class="flex gap-4 mb-8">
+    <div class="size-24 rounded-full shadow-lg overflow-hidden flex-shrink-0">
       <Image
         class="w-full h-full object-cover"
         style="transform: scale(1.9); transform-origin: 35% 40%;"
@@ -30,29 +30,32 @@ const profilePhotoAlt = "Alan Kennedy"
     </a>
   </div>
   <h1
-    class="font-display text-fluid-hero font-bold text-gray-800 dark:text-white"
+    class="font-display text-fluid-hero font-extrabold text-gray-800 dark:text-white"
   >
-    Hola, soy Alan Kennedy
+    Hola, soy<br />Alan Kennedy
   </h1>
-  <p
-    class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300 text-pretty"
-  >
-    +2 años de experiencia. 
-    <strong>Graduado de Técnico universitario en programación</strong>
-    radicado en Corrientes, Argentina. Especializado en el desarrollo full stack de aplicaciones web.
-  </p>
-  <nav class="flex flex-wrap gap-4 mt-8">
-    <SocialPill href="mailto:alaneduardokennedy@gmail.com">
-      <MailIcon class="size-4" />
-      Correo electrónico
-    </SocialPill>
-    <SocialPill href="https://linkedin.com/in/alankennedyy">
-      <LinkedInIcon class="size-4" />
-      LinkedIn
-    </SocialPill>
-    <SocialPill href="https://docs.google.com/document/d/18Erp1faNsYbPY-Oz-bLfpfLcTD6DY9zu/edit?usp=sharing&ouid=104967369668572909951&rtpof=true&sd=true">
-      <CvIcon class="size-4" />
-      Currículum
-    </SocialPill>
-  </nav>
+  <div class="w-16 h-[3px] bg-yellow-500 mt-5 mb-7 rounded-full"></div>
+  <div class="max-w-xl">
+    <p
+      class="text-lg text-gray-700 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300 text-pretty leading-relaxed"
+    >
+      +2 años de experiencia.
+      <strong>Graduado de Técnico universitario en programación</strong>
+      radicado en Corrientes, Argentina. Especializado en el desarrollo full stack de aplicaciones web.
+    </p>
+    <nav class="flex flex-wrap gap-4 mt-8">
+      <SocialPill href="mailto:alaneduardokennedy@gmail.com">
+        <MailIcon class="size-4" />
+        Correo electrónico
+      </SocialPill>
+      <SocialPill href="https://linkedin.com/in/alankennedyy">
+        <LinkedInIcon class="size-4" />
+        LinkedIn
+      </SocialPill>
+      <SocialPill href="https://docs.google.com/document/d/18Erp1faNsYbPY-Oz-bLfpfLcTD6DY9zu/edit?usp=sharing&ouid=104967369668572909951&rtpof=true&sd=true">
+        <CvIcon class="size-4" />
+        Currículum
+      </SocialPill>
+    </nav>
+  </div>
 </div>
