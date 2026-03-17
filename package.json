@@ -10,14 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.6",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/check": "^0.9.8",
+    "@astrojs/sitemap": "^3.7.1",
     "@astrojs/tailwind": "6.0.2",
-    "astro": "^5.17.3",
-    "tailwindcss": "^3.4.4",
-    "typescript": "^5.5.2"
+    "astro": "^5.18.1",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "baseline-browser-mapping": "^2.10.0"
+    "baseline-browser-mapping": "^2.10.8"
   }
 }
