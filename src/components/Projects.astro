@@ -54,60 +54,91 @@ const PROJECTS = [
 ];
 ---
 
-<div class="flex flex-col gap-y-20">
+<div class="flex flex-col divide-y divide-gray-200/70 dark:divide-gray-800/70">
   {
-    PROJECTS.map(({ image, title, description, tags, link, github }, index) => (
-      <article class={`flex flex-col gap-y-6 group md:flex-row md:gap-x-8 ${index % 2 !== 0 ? "md:flex-row-reverse" : ""}`}>
-        <div class="w-full md:w-1/2 h-full">
-          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-            <Image
-              alt="Captura de pantalla del proyecto"
-              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
-              src={image}
-            />
+    PROJECTS.map(({ image, title, description, tags, link, github }, index) => {
+      const sep = title.indexOf(" - ");
+      const name = sep > -1 ? title.slice(0, sep) : title;
+      const category = sep > -1 ? title.slice(sep + 3) : "";
+      return (
+        <article class="group py-12 first:pt-0 last:pb-0">
+
+          <div class="flex items-center gap-3 mb-6">
+            <span class="font-display text-xs font-bold tracking-[0.2em] text-yellow-500 dark:text-yellow-400 tabular-nums">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <div class="h-px flex-1 bg-gray-300/60 dark:bg-gray-700/60" />
+            {category && (
+              <span class="text-[0.65rem] tracking-[0.18em] uppercase text-gray-500 dark:text-gray-500 font-medium">
+                {category}
+              </span>
+            )}
           </div>
-        </div>
 
-        <div class="w-full md:w-1/2 md:max-w-lg flex flex-col">
-          <h3 class="font-display text-2xl font-bold text-gray-800 dark:text-gray-100">
-            {title}
-          </h3>
+          <div
+            class="relative overflow-hidden rounded-2xl w-full mb-7 shadow-md transition-shadow duration-500 group-hover:shadow-xl ring-1 ring-gray-200/80 dark:ring-gray-800/80"
+            style="aspect-ratio: 16/7;"
+          >
+            <Image
+              src={image}
+              alt={`Captura de pantalla de ${name}`}
+              class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+            />
+            {link && (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="absolute top-3 right-3 size-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-yellow-500"
+                aria-label={`Abrir ${name}`}
+              >
+                <Link class="size-3.5" />
+              </a>
+            )}
+          </div>
 
-          <div class="flex flex-col mt-2 flex-1">
-            <ul class="flex flex-row mb-2 gap-x-2 flex-wrap">
-              {tags.map((tag) => (
-                <li>
-                  <span
-                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 max-w-fit mt-2`}
-                  >
-                    <tag.icon class="size-4" />
-                    {tag.name}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            <div class="mt-2 text-gray-700 dark:text-gray-400 flex-1">
-              {description}
+          <div class="grid md:grid-cols-[1fr_auto] gap-x-12 gap-y-6 items-start">
+            <div class="flex flex-col gap-3">
+              <h3 class="font-display text-2xl md:text-[1.85rem] font-bold text-gray-900 dark:text-white leading-tight tracking-tight">
+                {name}
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-[0.925rem] max-w-2xl">
+                {description}
+              </p>
             </div>
 
-            <footer class="flex justify-center sm:justify-start mt-4 gap-x-4">
-              {github && (
-                <LinkButton href={github}>
-                  <GitHub class="size-6" />
-                  Repositorio
-                </LinkButton>
-              )}
-              {link && (
-                <LinkButton href={link}>
-                  <Link class="size-6" />
-                  Proyecto
-                </LinkButton>
-              )}
-            </footer>
+            <div class="flex flex-col gap-4 md:items-end md:min-w-[190px]">
+              <ul class="flex flex-wrap gap-2 md:justify-end">
+                {tags.map((tag) => (
+                  <li>
+                    <span
+                      class={`flex items-center gap-1.5 text-xs ${tag.class} py-1 px-2.5 rounded-full font-medium`}
+                    >
+                      <tag.icon class="size-3.5" />
+                      {tag.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <div class="flex gap-2 flex-wrap md:justify-end">
+                {github && (
+                  <LinkButton href={github}>
+                    <GitHub class="size-4" />
+                    Repositorio
+                  </LinkButton>
+                )}
+                {link && (
+                  <LinkButton href={link}>
+                    <Link class="size-4" />
+                    Ver proyecto
+                  </LinkButton>
+                )}
+              </div>
+            </div>
           </div>
-        </div>
-      </article>
-    ))
+
+        </article>
+      );
+    })
   }
 </div>
