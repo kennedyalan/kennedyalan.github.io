@@ -4,6 +4,7 @@ import GitHub from "./icons/GitHub.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
 import { TAGS } from "./tags/Tags.ts";
+import nexaImg from "../../public/projects/nexa.png";
 import temploImg from "../../public/projects/templo.png";
 import brainscriptorImg from "../../public/projects/brainscriptor.png";
 import dumasImg from "../../public/projects/dumas.png";
@@ -11,6 +12,13 @@ import tempoImg from "../../public/projects/tempo.png";
 import ecommerceImg from "../../public/projects/Ecommerce-API.jpg";
 
 const PROJECTS = [
+  {
+    title: "Nexa - Analytics potenciado por IA",
+    description:
+      "Plataforma de analytics para dueños de negocio sin perfil técnico. Conectás tu base de datos o tus planillas, preguntás en lenguaje natural y la IA genera dashboards automáticos y diagnostica problemas como productos con bajo rendimiento, tendencias y estacionalidad.",
+    image: nexaImg,
+    tags: [TAGS.NEXT, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.POSTGRESQL],
+  },
   {
     title: "El Templo del Fútbol 5 - Sistema de reserva de canchas",
     description:
