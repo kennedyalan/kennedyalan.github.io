@@ -1,24 +1,33 @@
 ---
+const en = Astro.currentLocale === "en";
 const EDUCATION = [
   {
     institution: "Devlights Corrientes",
-    degree: "HackIAthon - Agosto 2025",
-    description: "Concurso de desarrollo organizado por Devlights en donde realicé junto a un equipo de 3 desarrolladores un MVP en una jornada de un día completo. El proyecto surgió para solucionar el problema de que muchos usuarios no saben como alimentarse a pesar de concurrir al gimnasio. En base a los datos del usuario y su objetivo nutricional, se genera un plan nutricional con la API de Gemini."
+    degree: en ? "HackIAthon - August 2025" : "HackIAthon - Agosto 2025",
+    description: en
+      ? "Development competition organized by Devlights, where I built an MVP with a team of 3 developers in a single full-day session. The project tackled a common problem: many people go to the gym but don't know how to eat properly. Based on the user's data and nutrition goal, it generates a meal plan using the Gemini API."
+      : "Concurso de desarrollo organizado por Devlights en donde realicé junto a un equipo de 3 desarrolladores un MVP en una jornada de un día completo. El proyecto surgió para solucionar el problema de que muchos usuarios no saben como alimentarse a pesar de concurrir al gimnasio. En base a los datos del usuario y su objetivo nutricional, se genera un plan nutricional con la API de Gemini."
   },
   {
-    institution: "Universidad Tecnológica Nacional - Resistencia, Chaco",
-    degree: "Tecnicatura Universitaria en Programación - 2022 a 2024",
-    description: "Estudios centrados en desarrollo de software backend con Java y C#. Conceptos sobre programación orientada a objetos, estructuras de datos, patrones de diseño y bases de datos."
+    institution: en ? "National Technological University (UTN) - Resistencia, Chaco" : "Universidad Tecnológica Nacional - Resistencia, Chaco",
+    degree: en ? "Associate Degree in Programming - 2022 to 2024" : "Tecnicatura Universitaria en Programación - 2022 a 2024",
+    description: en
+      ? "Studies focused on backend software development with Java and C#. Object-oriented programming, data structures, design patterns and databases."
+      : "Estudios centrados en desarrollo de software backend con Java y C#. Conceptos sobre programación orientada a objetos, estructuras de datos, patrones de diseño y bases de datos."
   },
   {
     institution: "Globant Chaco",
-    degree: "Globant Java Bootcamp - Octubre 2024",
-    description: "Curso intensivo con enfoque en Java y SpringBoot. Se realizó un proyecto final integrando Spring MVC, H2 database, RabbitMQ, caching, patrones de diseño, Docker, AWS y Unit Testing."
+    degree: en ? "Globant Java Bootcamp - October 2024" : "Globant Java Bootcamp - Octubre 2024",
+    description: en
+      ? "Intensive course focused on Java and Spring Boot. Final project integrating Spring MVC, H2 database, RabbitMQ, caching, design patterns, Docker, AWS and unit testing."
+      : "Curso intensivo con enfoque en Java y SpringBoot. Se realizó un proyecto final integrando Spring MVC, H2 database, RabbitMQ, caching, patrones de diseño, Docker, AWS y Unit Testing."
   },
   {
     institution: "No Country",
-    degree: "Simulación laboral - Abril 2024",
-    description: "Responsable del desarrollo backend para la creación de una plataforma de inversión en criptomonedas. Me formé en el desarrollo de APIs REST, protocolos HTTP, pruebas de APIs e integración con bases de datos relacionales.",
+    degree: en ? "Job Simulation - April 2024" : "Simulación laboral - Abril 2024",
+    description: en
+      ? "Responsible for backend development of a cryptocurrency investment platform. Gained hands-on experience with REST APIs, HTTP, API testing and relational database integration."
+      : "Responsable del desarrollo backend para la creación de una plataforma de inversión en criptomonedas. Me formé en el desarrollo de APIs REST, protocolos HTTP, pruebas de APIs e integración con bases de datos relacionales.",
   },
 ];
 ---

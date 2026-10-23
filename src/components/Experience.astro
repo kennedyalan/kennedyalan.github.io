@@ -1,19 +1,23 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
+const en = Astro.currentLocale === "en"
 const EXPERIENCE = [
   {
-    date: "Noviembre 2025 - Actualmente",
-    title: "Desarrollador Full Stack & Administrador IT de REDCap",
+    date: en ? "November 2025 - Present" : "Noviembre 2025 - Actualmente",
+    title: en ? "Full Stack Developer & REDCap IT Administrator" : "Desarrollador Full Stack & Administrador IT de REDCap",
     company: "Instituto de Cardiología de Corrientes",
-    description: "Trabajo en el equipo de desarrollo construyendo servicios web y tests con Python, Django y pytest, e interfaces con React y TypeScript. Paralelamente, administro, mantengo y actualizo el sistema REDCap utilizado para la gestión de datos de investigación clínica, brindando soporte técnico a los usuarios y gestionando el servidor donde está instalado.",
+    description: en
+      ? "I work on the development team building web services and tests with Python, Django and pytest, and interfaces with React and TypeScript. In parallel, I administer, maintain and upgrade the REDCap system used for clinical research data management, providing technical support to users and managing the server it runs on."
+      : "Trabajo en el equipo de desarrollo construyendo servicios web y tests con Python, Django y pytest, e interfaces con React y TypeScript. Paralelamente, administro, mantengo y actualizo el sistema REDCap utilizado para la gestión de datos de investigación clínica, brindando soporte técnico a los usuarios y gestionando el servidor donde está instalado.",
     link: "https://linkedin.com/in/alankennedyy"
   },
   {
-    date: "Noviembre 2024 - Actualmente",
-    title: "Desarrollador Full Stack",
+    date: en ? "November 2024 - Present" : "Noviembre 2024 - Actualmente",
+    title: en ? "Full Stack Developer" : "Desarrollador Full Stack",
     company: "Freelance",
-    description:
-      "Desarrollo soluciones web y apps móviles para clientes con el fin de optimizar sus negocios y atraer nuevos clientes.",
+    description: en
+      ? "I build web solutions and mobile apps that help clients streamline their businesses and attract new customers."
+      : "Desarrollo soluciones web y apps móviles para clientes con el fin de optimizar sus negocios y atraer nuevos clientes.",
     link: "https://linkedin.com/in/alankennedyy"
   }
 ]

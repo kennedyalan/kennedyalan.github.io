@@ -11,50 +11,57 @@ import dumasImg from "../../public/projects/dumas.png";
 import tempoImg from "../../public/projects/tempo.png";
 import ecommerceImg from "../../public/projects/Ecommerce-API.jpg";
 
+const en = Astro.currentLocale === "en";
 const PROJECTS = [
   {
-    title: "Nexa - Analytics potenciado por IA",
-    description:
-      "Plataforma de analytics para dueños de negocio sin perfil técnico. Conectás tu base de datos o tus planillas, preguntás en lenguaje natural y la IA genera dashboards automáticos y diagnostica problemas como productos con bajo rendimiento, tendencias y estacionalidad.",
+    title: en ? "Nexa - AI-powered analytics" : "Nexa - Analytics potenciado por IA",
+    description: en
+      ? "Analytics platform for non-technical business owners. Connect your database or spreadsheets, ask questions in plain language, and the AI builds dashboards automatically and diagnoses issues like underperforming products, trends and seasonality."
+      : "Plataforma de analytics para dueños de negocio sin perfil técnico. Conectás tu base de datos o tus planillas, preguntás en lenguaje natural y la IA genera dashboards automáticos y diagnostica problemas como productos con bajo rendimiento, tendencias y estacionalidad.",
     image: nexaImg,
     tags: [TAGS.NEXT, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.POSTGRESQL],
   },
   {
-    title: "El Templo del Fútbol 5 - Sistema de reserva de canchas",
-    description:
-      "Plataforma web para la reserva online de canchas de fútbol 5 en un complejo deportivo de Corrientes, Argentina. Permite seleccionar fechas, horarios y duración de la reserva, con confirmación vía WhatsApp.",
+    title: en ? "El Templo del Fútbol 5 - Field booking system" : "El Templo del Fútbol 5 - Sistema de reserva de canchas",
+    description: en
+      ? "Web platform for booking 5-a-side soccer fields online at a sports complex in Corrientes, Argentina. Users pick the date, time and length of their booking, with confirmation via WhatsApp."
+      : "Plataforma web para la reserva online de canchas de fútbol 5 en un complejo deportivo de Corrientes, Argentina. Permite seleccionar fechas, horarios y duración de la reserva, con confirmación vía WhatsApp.",
     link: "https://eltemplodelfutbol5.com",
     image: temploImg,
     tags: [TAGS.NEXT, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND],
   },
   {
-    title: "Brainscriptor - Plataforma digital psicofármacos",
-    description:
-      "Plataforma digital para la asistencia de prescripción personalizada de psicofármacos. Trabajé conjunto a un equipo de 3 desarrolladores, 1 product designer y 1 project manager. Actualmente en busca de financiación.",
+    title: en ? "Brainscriptor - Psychiatric medication platform" : "Brainscriptor - Plataforma digital psicofármacos",
+    description: en
+      ? "Digital platform that assists with personalized prescribing of psychiatric medication. I worked alongside a team of 3 developers, 1 product designer and 1 project manager. Currently seeking funding."
+      : "Plataforma digital para la asistencia de prescripción personalizada de psicofármacos. Trabajé conjunto a un equipo de 3 desarrolladores, 1 product designer y 1 project manager. Actualmente en busca de financiación.",
     link: "https://app.brainscriptor.com/",
     image: brainscriptorImg,
     tags: [TAGS.NEXT, TAGS.REACT, TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
   },
   {
-    title: "Dumas Distribuciones - Tienda Web para distribuidora",
-    description:
-      "Solución integral para una empresa de distribución de productos para veterinarias. Integración con Mercado Pago y Firebase para almacenamiento de imágenes. Trabajo en equipo.",
+    title: en ? "Dumas Distribuciones - Online store for a distributor" : "Dumas Distribuciones - Tienda Web para distribuidora",
+    description: en
+      ? "End-to-end solution for a company that distributes veterinary products. Integrated with Mercado Pago for payments and Firebase for image storage. Built as a team."
+      : "Solución integral para una empresa de distribución de productos para veterinarias. Integración con Mercado Pago y Firebase para almacenamiento de imágenes. Trabajo en equipo.",
     link: "https://dumasdistribuciones.com.ar",
     image: dumasImg,
     tags: [TAGS.JAVA, TAGS.SPRING, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.POSTGRESQL],
   },
   {
-    title: "TEMPO Atelier - Landing y Reserva de turnos",
-    description:
-      "Sistema de reservas online para una peluquería unisex de Corrientes, Argentina. Reserva en pasos (servicio, estilista, fecha y horario) con disponibilidad en tiempo real y panel de administración para gestionar estilistas, servicios, horarios y turnos.",
+    title: en ? "TEMPO Atelier - Landing page and appointment booking" : "TEMPO Atelier - Landing y Reserva de turnos",
+    description: en
+      ? "Online booking system for a unisex hair salon in Corrientes, Argentina. Step-by-step booking (service, stylist, date and time) with real-time availability, plus an admin panel to manage stylists, services, schedules and appointments."
+      : "Sistema de reservas online para una peluquería unisex de Corrientes, Argentina. Reserva en pasos (servicio, estilista, fecha y horario) con disponibilidad en tiempo real y panel de administración para gestionar estilistas, servicios, horarios y turnos.",
     link: "https://tempo-atelier.com",
     image: tempoImg,
     tags: [TAGS.NEXT, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.POSTGRESQL],
   },
   {
-    title: "E-commerce API - Proyecto final de Bootcamp Globant",
-    description:
-      "E-commerce API diseñado para administrar productos, carritos y clientes. Implementado con los patrones de diseño \"decorator\" y \"factory\" y arquitectura MVC. Aprendí mucho sobre buenas practicas y diseño de API REST.",
+    title: en ? "E-commerce API - Globant Bootcamp final project" : "E-commerce API - Proyecto final de Bootcamp Globant",
+    description: en
+      ? "E-commerce API for managing products, carts and customers. Built with the \"decorator\" and \"factory\" design patterns and an MVC architecture. I learned a lot about best practices and REST API design."
+      : "E-commerce API diseñado para administrar productos, carritos y clientes. Implementado con los patrones de diseño \"decorator\" y \"factory\" y arquitectura MVC. Aprendí mucho sobre buenas practicas y diseño de API REST.",
     github: "https://github.com/Alankke/Ecommerce",
     image: ecommerceImg,
     tags: [TAGS.JAVA, TAGS.SPRING, TAGS.DOCKER, TAGS.RABBITMQ],
@@ -89,7 +96,7 @@ const PROJECTS = [
           >
             <Image
               src={image}
-              alt={`Captura de pantalla de ${name}`}
+              alt={`${en ? "Screenshot of" : "Captura de pantalla de"} ${name}`}
               class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
             />
             {link && (
@@ -98,7 +105,7 @@ const PROJECTS = [
                 target="_blank"
                 rel="noopener noreferrer"
                 class="absolute top-3 right-3 size-8 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-yellow-500"
-                aria-label={`Abrir ${name}`}
+                aria-label={`${en ? "Open" : "Abrir"} ${name}`}
               >
                 <Link class="size-3.5" />
               </a>
@@ -132,13 +139,13 @@ const PROJECTS = [
                 {github && (
                   <LinkButton href={github}>
                     <GitHub class="size-4" />
-                    Repositorio
+                    {en ? "Repository" : "Repositorio"}
                   </LinkButton>
                 )}
                 {link && (
                   <LinkButton href={link}>
                     <Link class="size-4" />
-                    Ver proyecto
+                    {en ? "View project" : "Ver proyecto"}
                   </LinkButton>
                 )}
               </div>

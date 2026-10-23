@@ -7,6 +7,7 @@ import LinkedInIcon from "./icons/LinkedIn.astro"
 import CvIcon from "./icons/Cv.astro"
 import profilePhoto from "../../public/profile.jpg"
 const profilePhotoAlt = "Alan Kennedy"
+const en = Astro.currentLocale === "en"
 ---
 
 <div>
@@ -32,29 +33,41 @@ const profilePhotoAlt = "Alan Kennedy"
   <h1
     class="font-display text-fluid-hero font-bold text-gray-800 dark:text-white"
   >
-    Hola, soy<br />Alan Kennedy
+    {en ? "Hi, I'm" : "Hola, soy"}<br />Alan Kennedy
   </h1>
   <div class="w-16 h-[3px] bg-yellow-500 mt-5 mb-7 rounded-full"></div>
   <div class="max-w-xl">
     <p
       class="text-lg text-gray-700 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300 text-pretty leading-relaxed"
     >
-      +2 años de experiencia.
-      <strong>Graduado de Técnico universitario en programación</strong>
-      radicado en Corrientes, Argentina. Especializado en el desarrollo full stack de aplicaciones web.
+      {en ? (
+        <>
+          2+ years of experience.
+          <strong>University graduate with an Associate Degree in Programming</strong>
+          based in Corrientes, Argentina. Specialized in full stack web application development.
+        </>
+      ) : (
+        <>
+          +2 años de experiencia.
+          <strong>Graduado de Técnico universitario en programación</strong>
+          radicado en Corrientes, Argentina. Especializado en el desarrollo full stack de aplicaciones web.
+        </>
+      )}
     </p>
     <nav class="flex flex-wrap gap-4 mt-8">
       <SocialPill href="mailto:alaneduardokennedy@gmail.com">
         <MailIcon class="size-4" />
-        Correo electrónico
+        {en ? "Email" : "Correo electrónico"}
       </SocialPill>
       <SocialPill href="https://linkedin.com/in/alankennedyy">
         <LinkedInIcon class="size-4" />
         LinkedIn
       </SocialPill>
-      <SocialPill href="https://docs.google.com/document/d/1H8aU25RWJto1ZWIEZqrBXF6KkVPcUcKsgZGsKmermUs/edit?usp=sharing">
+      <SocialPill href={en
+        ? "https://docs.google.com/document/d/1n7XXbEWMl3q2T3dEBp3HIjwT9FLid3JJe0T2WtuBZl4/edit?usp=sharing"
+        : "https://docs.google.com/document/d/1H8aU25RWJto1ZWIEZqrBXF6KkVPcUcKsgZGsKmermUs/edit?usp=sharing"}>
         <CvIcon class="size-4" />
-        Currículum
+        {en ? "Resume" : "Currículum"}
       </SocialPill>
     </nav>
   </div>

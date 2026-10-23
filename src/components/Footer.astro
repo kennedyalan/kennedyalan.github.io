@@ -1,5 +1,6 @@
 ---
 const actualYear = new Date().getFullYear();
+const en = Astro.currentLocale === "en";
 ---
 
 <footer class="m-4 mt-16 mb-10 w-full max-w-4xl mx-auto">
@@ -16,7 +17,7 @@ const actualYear = new Date().getFullYear();
       href="mailto:alaneduardokennedy@gmail.com"
       class="text-sm font-medium hover:underline text-zinc-800/90 dark:text-white/90"
     >
-      Contacto
+      {en ? "Contact" : "Contacto"}
     </a>
   </div>
 </footer>

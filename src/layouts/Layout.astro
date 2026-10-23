@@ -14,6 +14,7 @@ const { description, title, ogImage = "/profile.jpg" } = Astro.props
 const siteUrl = "https://alankke.github.io"
 const canonicalURL = `${siteUrl}${Astro.url.pathname}`
 const ogImageURL = `${siteUrl}${ogImage}`
+const lang = Astro.currentLocale === "en" ? "en" : "es"
 
 const schema = {
   "@context": "https://schema.org",
@@ -35,7 +36,7 @@ const schema = {
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <!-- Google tag (gtag.js) -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MN3YDDW0YM"></script>
@@ -54,6 +55,9 @@ const schema = {
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="es" href={`${siteUrl}/`} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}/en/`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
@@ -64,7 +68,7 @@ const schema = {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:site_name" content="Alan Kennedy - Portfolio" />
-    <meta property="og:locale" content="es_AR" />
+    <meta property="og:locale" content={lang === "en" ? "en_US" : "es_AR"} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />

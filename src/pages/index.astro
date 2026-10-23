@@ -6,11 +6,15 @@ import Projects from "../components/Projects.astro";
 import Education from "../components/Education.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import Layout from "../layouts/Layout.astro";
+
+const en = Astro.currentLocale === "en";
 ---
 
 <Layout
-	title="Portfolio de Alan Kennedy - Desarrollador Full Stack"
-	description="Desarrollador Full Stack con +2 años de experiencia en React, Next.js, Spring Boot y TypeScript. Disponible para proyectos freelance desde Corrientes, Argentina."
+	title={en ? "Alan Kennedy's Portfolio - Full Stack Developer" : "Portfolio de Alan Kennedy - Desarrollador Full Stack"}
+	description={en
+		? "Full Stack Developer with 2+ years of experience in React, Next.js, Spring Boot and TypeScript. Available for freelance projects, based in Corrientes, Argentina."
+		: "Desarrollador Full Stack con +2 años de experiencia en React, Next.js, Spring Boot y TypeScript. Disponible para proyectos freelance desde Corrientes, Argentina."}
 >
 	<main class="px-4">
 		<SectionContainer class="py-16 md:py-36">
@@ -22,7 +26,7 @@ import Layout from "../layouts/Layout.astro";
 			<h2
 				class="font-display text-fluid-section font-bold mb-6 border-l-[3px] border-yellow-500 pl-4 text-black/80 dark:text-white"
 			>
-				Experiencia laboral
+				{en ? "Work experience" : "Experiencia laboral"}
 			</h2>
 			<Experience />
 		</SectionContainer>
@@ -31,14 +35,14 @@ import Layout from "../layouts/Layout.astro";
 			<h2
 				class="font-display text-fluid-section font-bold mb-6 border-l-[3px] border-yellow-500 pl-4 text-black/80 dark:text-white"
 			>
-				Proyectos
+				{en ? "Projects" : "Proyectos"}
 			</h2>
 			<Projects />
 		</SectionContainer>
 
 		<SectionContainer id="educación">
       <h2 class="font-display text-fluid-section font-bold mb-6 border-l-[3px] border-yellow-500 pl-4 text-black/80 dark:text-white">
-        Educación
+        {en ? "Education" : "Educación"}
       </h2>
       <Education />
     </SectionContainer>
@@ -47,7 +51,7 @@ import Layout from "../layouts/Layout.astro";
 			<h2
 				class="font-display text-fluid-section font-bold mb-6 border-l-[3px] border-yellow-500 pl-4 text-black/80 dark:text-white"
 			>
-				Sobre mí
+				{en ? "About me" : "Sobre mí"}
 			</h2>
 			<AboutMe />
 		</SectionContainer>

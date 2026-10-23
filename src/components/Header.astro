@@ -1,30 +1,26 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro"
 
+const en = Astro.currentLocale === "en"
 const navItems = [
   {
-    title: "Experiencia",
-    label: "experiencia",
-    url: "/#experiencia",
+    title: en ? "Experience" : "Experiencia",
+    url: "#experiencia",
   },
   {
-    title: "Proyectos",
-    label: "proyectos",
-    url: "/#proyectos",
+    title: en ? "Projects" : "Proyectos",
+    url: "#proyectos",
   },
   {
-    title: "Educación",
-    label: "educación",
-    url: "/#educación"
+    title: en ? "Education" : "Educación",
+    url: "#educación"
   },
   {
-    title: "Sobre mí",
-    label: "sobre-mi",
-    url: "/#sobre-mi",
+    title: en ? "About me" : "Sobre mí",
+    url: "#sobre-mi",
   },
   {
-    title: "Contacto",
-    label: "contacto",
+    title: en ? "Contact" : "Contacto",
     url: "mailto:alaneduardokennedy@gmail.com",
   },
 ]
@@ -40,13 +36,21 @@ const navItems = [
     navItems.map((link) => (
       <a
         class="relative block px-1 sm:px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
-        aria-label={link.label}
         href={link.url}
       >
         {link.title}
       </a>
     ))
   }
+  <a
+    class="relative block px-1 sm:px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
+    href={en ? "/" : "/en/"}
+    hreflang={en ? "es" : "en"}
+    lang={en ? "es" : "en"}
+    aria-label={en ? "Ver en español" : "View in English"}
+  >
+    {en ? "ES" : "EN"}
+  </a>
   <ThemeToggle />
   </nav>
 </header>
@@ -60,7 +64,7 @@ const navItems = [
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
+            if (item.getAttribute("href") == `#${entry.target.id}`) {
               item.classList.add("text-yellow-500")
             } else {
               item.classList.remove("text-yellow-500")

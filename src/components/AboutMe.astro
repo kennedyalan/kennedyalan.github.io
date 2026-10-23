@@ -2,22 +2,40 @@
 import { Image } from "astro:assets"
 import aboutMePhoto from "../../public/aboutMe.jpg"
 const profilePhotoAlt = "Alan Kennedy"
+const en = Astro.currentLocale === "en"
 ---
 
 <article class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
   <div
     class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-semibold [&>p>strong]:font-display text-pretty order-2 md:order-1 px-2"
   >
-    <p>
-      Actualmente estoy
-      <strong>ofreciendo mis servicios como desarrollador de páginas web.</strong>
-      Comencé en la programación cuando tenía 17 años, realizando cursos introductorios.
-      En este momento, estoy desarrollando proyectos para clientes que necesiten una solución en software y formándome continuamente en el desarrollo full stack.
-    </p>
+    {en ? (
+      <>
+        <p>
+          I'm currently
+          <strong>offering my services as a web developer.</strong>
+          I started programming at 17, taking introductory courses.
+          Right now, I'm building projects for clients who need a software solution while continuously growing as a full stack developer.
+        </p>
 
-    <p>
-      Me interesa muchísimo <strong>Machine Learning e IA</strong>. Me apasiona la fotografía como pasatiempo.
-    </p>
+        <p>
+          I'm deeply interested in <strong>Machine Learning and AI</strong>. Outside of code, photography is my passion.
+        </p>
+      </>
+    ) : (
+      <>
+        <p>
+          Actualmente estoy
+          <strong>ofreciendo mis servicios como desarrollador de páginas web.</strong>
+          Comencé en la programación cuando tenía 17 años, realizando cursos introductorios.
+          En este momento, estoy desarrollando proyectos para clientes que necesiten una solución en software y formándome continuamente en el desarrollo full stack.
+        </p>
+
+        <p>
+          Me interesa muchísimo <strong>Machine Learning e IA</strong>. Me apasiona la fotografía como pasatiempo.
+        </p>
+      </>
+    )}
   </div>
   <Image src={aboutMePhoto} alt={profilePhotoAlt} class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20" style="object-position: 50% 50%" />
 
