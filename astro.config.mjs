@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://alankke.github.io/',
+  site: 'https://alankennedy.dev/',
   i18n: { defaultLocale: 'es', locales: ['es', 'en'] },
   integrations: [tailwind(), sitemap()]
 });
