@@ -11,6 +11,8 @@ import React from "../icons/React.astro";
 import Spring from "../icons/Spring.astro";
 import TypeScript from "../icons/TypeScript.astro";
 import TailwindCSS from "../icons/TailwindCSS.astro";
+import Prisma from "../icons/Prisma.astro";
+import Firebase from "../icons/Firebase.astro";
 
 export const TAGS = {
     JAVA: {
@@ -77,5 +79,15 @@ export const TAGS = {
       name: "TypeScript",
       class: "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300",
       icon: TypeScript,
+    },
+    PRISMA: {
+      name: "Prisma",
+      class: "bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200",
+      icon: Prisma,
+    },
+    FIREBASE: {
+      name: "Firebase",
+      class: "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300",
+      icon: Firebase,
     },
 };
