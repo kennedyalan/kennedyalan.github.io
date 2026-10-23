@@ -1,0 +1,33 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "alankennedy.dev",
+    "version": "1.0.0",
+    "description": "Static portfolio of Alan Kennedy. Pages are served as HTML by default, or as Markdown when the request sends Accept: text/markdown."
+  },
+  "servers": [{ "url": "https://alankennedy.dev" }],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Portfolio (Spanish)",
+        "responses": {
+          "200": {
+            "description": "Portfolio page",
+            "content": { "text/html": {}, "text/markdown": {} }
+          }
+        }
+      }
+    },
+    "/en/": {
+      "get": {
+        "summary": "Portfolio (English)",
+        "responses": {
+          "200": {
+            "description": "Portfolio page",
+            "content": { "text/html": {}, "text/markdown": {} }
+          }
+        }
+      }
+    }
+  }
+}

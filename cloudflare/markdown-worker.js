@@ -60,23 +60,33 @@ export async function htmlToMarkdown(res, baseUrl) {
     .trim() + '\n';
 }
 
+// Agent discovery links for the homepage (RFC 8288 / RFC 9727 section 3)
+const LINKS = '</.well-known/api-catalog>; rel="api-catalog", </openapi.json>; rel="service-desc", </llms.txt>; rel="service-doc", </auth.md>; rel="describedby"';
+const HOMEPAGES = ['/', '/en/'];
+
 export default {
   async fetch(request) {
     const res = await fetch(request);
+    const { pathname } = new URL(request.url);
     const wantsMd = (request.headers.get('Accept') || '').includes('text/markdown');
+    let out;
     if (!wantsMd || !(res.headers.get('Content-Type') || '').includes('text/html')) {
-      const out = new Response(res.body, res);
+      out = new Response(res.body, res);
       out.headers.append('Vary', 'Accept');
-      return out;
+    } else {
+      const md = await htmlToMarkdown(res, request.url);
+      out = new Response(md, {
+        status: res.status,
+        headers: {
+          'Content-Type': 'text/markdown; charset=utf-8',
+          'Vary': 'Accept',
+          'x-markdown-tokens': String(Math.ceil(md.length / 4)), // ponytail: rough estimate, ~4 chars/token
+        },
+      });
     }
-    const md = await htmlToMarkdown(res, request.url);
-    return new Response(md, {
-      status: res.status,
-      headers: {
-        'Content-Type': 'text/markdown; charset=utf-8',
-        'Vary': 'Accept',
-        'x-markdown-tokens': String(Math.ceil(md.length / 4)), // ponytail: rough estimate, ~4 chars/token
-      },
-    });
+    if (HOMEPAGES.includes(pathname)) out.headers.set('Link', LINKS);
+    // GitHub Pages serves extensionless files as application/octet-stream
+    if (pathname === '/.well-known/api-catalog') out.headers.set('Content-Type', 'application/linkset+json');
+    return out;
   },
 };

@@ -1,0 +1,11 @@
+# alankennedy.dev
+
+> Portfolio of Alan Kennedy, full stack developer based in Corrientes, Argentina.
+
+This is a static site with no API. Every page is served as HTML by default, or as Markdown when the request sends `Accept: text/markdown`.
+
+## Pages
+
+- [Portfolio (Spanish)](https://alankennedy.dev/): experience, projects, education, contact
+- [Portfolio (English)](https://alankennedy.dev/en/): same content in English
+- [OpenAPI description](https://alankennedy.dev/openapi.json)

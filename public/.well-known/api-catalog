@@ -1,0 +1,13 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://alankennedy.dev/",
+      "service-desc": [
+        { "href": "https://alankennedy.dev/openapi.json", "type": "application/vnd.oai.openapi+json" }
+      ],
+      "service-doc": [
+        { "href": "https://alankennedy.dev/llms.txt", "type": "text/plain" }
+      ]
+    }
+  ]
+}
