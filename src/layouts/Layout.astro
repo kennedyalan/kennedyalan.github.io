@@ -92,6 +92,44 @@ const schema = {
     <Header />
     <slot />
     <Footer />
+    <script>
+      // WebMCP: expose site actions to in-browser AI agents
+      let controller: AbortController | undefined
+      document.addEventListener("astro:page-load", () => {
+        const mc = (document as any).modelContext ?? (navigator as any).modelContext
+        if (!mc?.registerTool) return
+        controller?.abort()
+        controller = new AbortController()
+        const { signal } = controller
+        const sections = [...document.querySelectorAll("section[id], #contacto")].map((el) => el.id)
+
+        mc.registerTool({
+          name: "navigate_to_section",
+          description: "Scroll the portfolio to a section (experience, projects, education, about me, contact).",
+          inputSchema: {
+            type: "object",
+            properties: { section: { type: "string", enum: sections } },
+            required: ["section"],
+          },
+          execute: async ({ section }: { section: string }) => {
+            document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })
+            return { scrolledTo: section }
+          },
+        }, { signal })
+
+        mc.registerTool({
+          name: "get_contact_info",
+          description: "Get Alan Kennedy's contact details and profile links.",
+          inputSchema: { type: "object", properties: {} },
+          annotations: { readOnlyHint: true },
+          execute: async () => ({
+            email: "alaneduardokennedy@gmail.com",
+            linkedin: "https://linkedin.com/in/alankennedyy",
+            github: "https://github.com/kennedyalan",
+          }),
+        }, { signal })
+      })
+    </script>
     <style is:global>
       :root {
         color-scheme: light dark;

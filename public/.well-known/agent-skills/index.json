@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "alan-kennedy-portfolio",
+      "type": "skill-md",
+      "description": "Read Alan Kennedy's portfolio (experience, projects, education, contact) at alankennedy.dev as clean Markdown.",
+      "url": "https://alankennedy.dev/.well-known/agent-skills/alan-kennedy-portfolio/SKILL.md",
+      "digest": "sha256:9cce4f174800d860566a9f85614646d47039b03cca368a071781add6d703b880"
+    }
+  ]
+}
