@@ -16,12 +16,23 @@ const canonicalURL = `${siteUrl}${Astro.url.pathname}`
 const ogImageURL = `${siteUrl}${ogImage}`
 const lang = Astro.currentLocale === "en" ? "en" : "es"
 
-const schema = {
-  "@context": "https://schema.org",
+const person = {
   "@type": "Person",
+  "@id": `${siteUrl}/#person`,
   "name": "Alan Kennedy",
   "url": siteUrl,
+  "image": `${siteUrl}/profile.jpg`,
+  "email": "mailto:alaneduardokennedy@gmail.com",
+  "description": description,
   "jobTitle": "Full Stack Developer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Instituto de Cardiología de Corrientes"
+  },
+  "alumnOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universidad Tecnológica Nacional - Facultad Regional Resistencia"
+  },
   "knowsAbout": ["Full Stack Development", "React", "Next.js", "Spring Boot", "TypeScript", "Java", "Python", "Django", "PostgreSQL", "Machine Learning"],
   "sameAs": [
     "https://linkedin.com/in/alankennedyy",
@@ -32,6 +43,30 @@ const schema = {
     "addressLocality": "Corrientes",
     "addressCountry": "AR"
   }
+}
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": `${canonicalURL}#profilepage`,
+      "url": canonicalURL,
+      "name": title,
+      "inLanguage": lang,
+      "mainEntity": { "@id": person["@id"] },
+      "isPartOf": { "@id": `${siteUrl}/#website` }
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "url": `${siteUrl}/`,
+      "name": "Alan Kennedy",
+      "inLanguage": ["es", "en"],
+      "publisher": { "@id": person["@id"] }
+    },
+    person
+  ]
 }
 ---
 
